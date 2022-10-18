@@ -1,19 +1,18 @@
-//
-//  ViewController.swift
-//  RegexValidationTestApp
-//
-//  Created by Кирилл Нескоромный on 18.10.2022.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        setupView()
     }
 
+    // MARK: - Private Methods
+    
+    private func setupView() {
+        view.backgroundColor = .systemMint
+    }
 
 }
 
