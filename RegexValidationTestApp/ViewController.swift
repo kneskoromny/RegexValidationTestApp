@@ -6,9 +6,19 @@ class ViewController: UIViewController {
     
     let titleLabel = UIFactory.titleLabel
     let verticalStackView = UIFactory.verticalStackView
+    
+    let phoneStackView = UIFactory.horizontalStackView
     let phoneTextField = UIFactory.textField
+    let phoneCheckmark = UIFactory.checkmarkImageView
+    
+    let emailStackView = UIFactory.horizontalStackView
     let emailTextField = UIFactory.textField
+    let emailCheckmark = UIFactory.checkmarkImageView
+    
+    let nameStackView = UIFactory.horizontalStackView
     let nameTextField = UIFactory.textField
+    let nameCheckmark = UIFactory.checkmarkImageView
+    
     let dateTextField = UIFactory.textField
     let passwordTextField = UIFactory.textField
     let actionButton = UIFactory.actionButton
@@ -20,6 +30,7 @@ class ViewController: UIViewController {
         
         setupView()
         setupLayout()
+        setButtonEnabled(false)
     }
 
     // MARK: - Private Methods
@@ -48,17 +59,28 @@ class ViewController: UIViewController {
         )
         passwordTextField.isSecureTextEntry = true
         actionButton.addTarget(self, action: #selector(checkFields), for: .touchUpInside)
+        
+        set(nameCheckmark, isHidden: true)
+        set(phoneCheckmark, isHidden: true)
+        set(emailCheckmark, isHidden: true)
     }
     
     private func setupLayout() {
         view.addSubview(titleLabel)
         view.addSubview(verticalStackView)
-        verticalStackView.addArrangedSubview(nameTextField)
-        verticalStackView.addArrangedSubview(phoneTextField)
+        verticalStackView.addArrangedSubview(nameStackView)
+        verticalStackView.addArrangedSubview(phoneStackView)
+        verticalStackView.addArrangedSubview(emailStackView)
         verticalStackView.addArrangedSubview(passwordTextField)
-        verticalStackView.addArrangedSubview(emailTextField)
         verticalStackView.addArrangedSubview(dateTextField)
         verticalStackView.addArrangedSubview(actionButton)
+        
+        nameStackView.addArrangedSubview(nameTextField)
+        nameStackView.addArrangedSubview(nameCheckmark)
+        phoneStackView.addArrangedSubview(phoneTextField)
+        phoneStackView.addArrangedSubview(phoneCheckmark)
+        emailStackView.addArrangedSubview(emailTextField)
+        emailStackView.addArrangedSubview(emailCheckmark)
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
@@ -67,12 +89,24 @@ class ViewController: UIViewController {
             verticalStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 24),
             verticalStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
             nameTextField.heightAnchor.constraint(equalToConstant: 44),
+            nameCheckmark.widthAnchor.constraint(equalToConstant: 44),
             phoneTextField.heightAnchor.constraint(equalToConstant: 44),
-            passwordTextField.heightAnchor.constraint(equalToConstant: 44),
+            phoneCheckmark.widthAnchor.constraint(equalToConstant: 44),
             emailTextField.heightAnchor.constraint(equalToConstant: 44),
+            emailCheckmark.widthAnchor.constraint(equalToConstant: 44),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 44),
             dateTextField.heightAnchor.constraint(equalToConstant: 44),
             actionButton.heightAnchor.constraint(equalToConstant: 44)
         ])
+    }
+    
+    private func setButtonEnabled(_ isEnabled: Bool) {
+        actionButton.isEnabled = isEnabled
+        actionButton.backgroundColor = isEnabled ? .systemYellow : .systemGray
+    }
+    
+    private func set(_ view: UIView, isHidden: Bool) {
+        view.isHidden = isHidden
     }
     
     // MARK: - Actions

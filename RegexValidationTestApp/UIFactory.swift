@@ -28,10 +28,27 @@ final class UIFactory {
         return textField
     }
     
+    static var checkmarkImageView: UIImageView {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "checkmark.circle")
+        imageView.tintColor = .systemGreen
+        return imageView
+    }
+    
     static var verticalStackView: UIStackView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 16
+        return stackView
+    }
+    
+    static var horizontalStackView: UIStackView {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.spacing = 16
         return stackView
