@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, RegexValidable {
 
     // MARK: - Private Properties
     
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         setupView()
         setupLayout()
-        setButtonEnabled(false)
+        //KirillsetButtonEnabled(false)
     }
 
     // MARK: - Private Methods
@@ -38,23 +38,23 @@ class ViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .systemMint
         phoneTextField.attributedPlaceholder = NSAttributedString(
-            string: "Телефон",
+            string: "Phone",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         emailTextField.attributedPlaceholder = NSAttributedString(
-            string: "Электронная почта",
+            string: "Email",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         nameTextField.attributedPlaceholder = NSAttributedString(
-            string: "Имя",
+            string: "Name",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         dateTextField.attributedPlaceholder = NSAttributedString(
-            string: "Дата рождения",
+            string: "Date of Birth",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         passwordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Пароль",
+            string: "Password",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         passwordTextField.isSecureTextEntry = true
@@ -112,7 +112,15 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @objc func checkFields() {
-        print("I check input")
+        print("i check fields")
+        let isValidName = isValidName(nameTextField.text)
+        set(nameCheckmark, isHidden: !isValidName)
+        print("is valid name: \(isValidName)")
+        
+        
+        let isValidPhone = isValidPhone(phoneTextField.text)
+        set(phoneCheckmark, isHidden: !isValidPhone)
+        print("is valid phone: \(isValidPhone)")
     }
 
 }

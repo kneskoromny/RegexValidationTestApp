@@ -13,6 +13,7 @@
 		F77CA2D928FEA7FC00891F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F77CA2D828FEA7FC00891F57 /* Assets.xcassets */; };
 		F77CA2DC28FEA7FC00891F57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F77CA2DA28FEA7FC00891F57 /* LaunchScreen.storyboard */; };
 		F77CA2E428FEB70600891F57 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77CA2E328FEB70600891F57 /* UIFactory.swift */; };
+		F7DA4BFB290066450046CC1D /* RegexValidable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DA4BFA290066450046CC1D /* RegexValidable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		F77CA2DB28FEA7FC00891F57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F77CA2DD28FEA7FC00891F57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F77CA2E328FEB70600891F57 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
+		F7DA4BFA290066450046CC1D /* RegexValidable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegexValidable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				F77CA2CF28FEA7F800891F57 /* AppDelegate.swift */,
 				F77CA2D128FEA7F800891F57 /* SceneDelegate.swift */,
 				F77CA2D328FEA7F800891F57 /* ViewController.swift */,
+				F7DA4BFA290066450046CC1D /* RegexValidable.swift */,
 				F77CA2E328FEB70600891F57 /* UIFactory.swift */,
 				F77CA2D828FEA7FC00891F57 /* Assets.xcassets */,
 				F77CA2DA28FEA7FC00891F57 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F77CA2E428FEB70600891F57 /* UIFactory.swift in Sources */,
+				F7DA4BFB290066450046CC1D /* RegexValidable.swift in Sources */,
 				F77CA2D428FEA7F800891F57 /* ViewController.swift in Sources */,
 				F77CA2D028FEA7F800891F57 /* AppDelegate.swift in Sources */,
 				F77CA2D228FEA7F800891F57 /* SceneDelegate.swift in Sources */,

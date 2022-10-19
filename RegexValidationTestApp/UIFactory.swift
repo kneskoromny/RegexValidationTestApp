@@ -5,7 +5,7 @@ final class UIFactory {
     static var titleLabel: UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Заполните форму"
+        label.text = "Fill out the form"
         label.font = .boldSystemFont(ofSize: 24)
         label.textColor = .white
         return label
@@ -22,7 +22,8 @@ final class UIFactory {
     static var textField: UITextField {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.textColor = .black
+        textField.font = .boldSystemFont(ofSize: 17)
+        textField.textColor = .systemPink
         textField.borderStyle = .roundedRect
         textField.backgroundColor = .systemMint
         return textField
@@ -58,8 +59,9 @@ final class UIFactory {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .systemYellow
-        button.setTitle("Готово!", for: .normal)
+        button.setTitle("Check", for: .normal)
         button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
         button.layer.cornerRadius = 10
         return button
     }
