@@ -13,7 +13,7 @@ enum Patterns {
         case .phone:
             return #"\b[0-9]{11}\b"#
         case .email:
-            return ""
+            return #"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"#
         }
     }
 }
@@ -22,13 +22,15 @@ protocol RegexValidable {
     
     func isValidName(_ name: String?) -> Bool
     func isValidPhone(_ phone: String?) -> Bool
-    
+    func isValidEmail(_ email: String?) -> Bool
 }
 
 extension RegexValidable {
     
     func isValidName(_ name: String?) -> Bool {
-        guard let lowercasedName = name?.lowercased() else {
+        let whitespace = " "
+        guard let lowercasedName = name?.lowercased(),
+              lowercasedName.range(of: whitespace) == nil else {
             return false
         }
         let pattern = Patterns.name.getPattern()
@@ -47,5 +49,16 @@ extension RegexValidable {
         return regex?.firstMatch(in: trimmingPhone, range: range) != nil
     }
     
+    func isValidEmail(_ email: String?) -> Bool {
+        let whitespace = " "
+        guard let email = email,
+              email.range(of: whitespace) == nil else {
+            return false
+        }
+        let pattern = Patterns.email.getPattern()
+        let range = NSMakeRange(.zero, email.count)
+        let regex = try? NSRegularExpression(pattern: pattern)
+        return regex?.firstMatch(in: email, range: range) != nil
+    }
+    
 }
-
